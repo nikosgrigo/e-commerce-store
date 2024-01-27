@@ -1,0 +1,43 @@
+h5{
+    font-size: 1.4rem;
+}
+
+h2{
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.results-header{
+    margin-bottom: 2rem
+}
+
+#total-results{
+    font-size: 0.9rem;
+}
+
+/* .product-image{
+    height: 230px;
+    object-fit: cover;
+} */
+
+.ratings i{
+    color:orange;
+}
+
+.user-ratings h6{
+    margin-top:2px;
+}
+
+.product-price{
+    font-weight: bold;
+}
+
+.product-category{
+    font-size: 0.8rem;
+    color: #f4f3f3;
+    font-weight: 500;
+}
+
+.product-description{
+    font-size: 0.9rem;
+}
