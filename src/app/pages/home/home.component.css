@@ -28,6 +28,10 @@ h2{
     margin-top:2px;
 }
 
+.product-image{
+    font-weight: 600;
+}
+
 .product-price{
     font-weight: bold;
 }

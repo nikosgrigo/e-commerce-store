@@ -1,36 +1,43 @@
 <div class="results-header">
-    <h2>Products</h2>
-    <span id="total-results">32 products</span>
+  <h2>Products</h2>
+  <span id="total-results">32 products</span>
 </div>
 <div class="product-list row row-cols-1 row-cols-md-4 g-4">
-
-    @for (product of productList; track product) {
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src={{product.thumbnail}} class="card-img-top product-image" alt="...">
-                <div class="card-body">
-                    <span class="product-category text-muted">{{product.category}}</span>
-                    <h5 class="card-title mt-1">{{product.brand +" "+ product.title}}</h5>
-                    <p class="card-text product-description">{{product.description}}</p>
-                    <div class="d-flex flex-row user-ratings">
-                        <div class="ratings">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-half"></i>
-                        <i class="bi bi-star"></i>
-                        </div>
-                        <h6 class="text-muted ms-2">{{product.rating}}</h6>
-                    </div>
-                    <span class="product-price d-block">{{product.price}} &euro;</span>
-                    <a href="#" class="btn btn-primary mt-3">Add to cart<i class="bi bi-bag ms-2"></i></a>
-                </div>
-                <div class="card-footer">
-                    <small class="text-body-secondary">Last updated 3 mins ago</small>
-                </div>
-            </div>
+  @if (products$ | async) { @for (product of productList; track product) {
+  <div class="col">
+    <div class="card" style="width: 18rem">
+      <img
+        src="{{ product.thumbnail }}"
+        class="card-img-top product-image"
+        alt="..."
+      />
+      <div class="card-body">
+        <span class="product-category text-muted">{{ product.category }}</span>
+        <h5 class="card-title mt-1 product-title">
+          {{ product.brand + " " + product.title }}
+        </h5>
+        <p class="card-text product-description">{{ product.description }}</p>
+        <div class="d-flex flex-row user-ratings">
+          <div class="ratings">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+            <i class="bi bi-star"></i>
+          </div>
+          <h6 class="text-muted ms-2">{{ product.rating }}</h6>
         </div>
-      }
+        <span class="product-price d-block">{{ product.price }} &euro;</span>
+        <a href="#" class="btn btn-primary mt-3"
+          >Add to cart<i class="bi bi-bag ms-2"></i
+        ></a>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  } 
 
-
+}
 </div>
