@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from '../interfaces/product';
 
 import { tap } from 'rxjs';
@@ -21,11 +21,13 @@ export class ProductService {
 
   getAllProducts(): void {
 
-    // Make the HTTP GET request with options
     this.http.get<any>(`${this.url}/products`).subscribe(data => {
       this._productsSub.next(data?.products);
-      console.log(data)
     });
+  }
+
+  getProductDetails(productId: number): Observable<Product> {
+    return this.http.get<Product>(`${this.url}/products/${productId}`);
   }
 
 
