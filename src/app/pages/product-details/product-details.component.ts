@@ -34,6 +34,13 @@ export class ProductDetailsComponent {
     });
   }
 
+  addProductToCart(productData:Product){
+    //add to cart object 
+    //calculate total
+    //change icon 
+    //etc
+  }
+
 
 
 }
