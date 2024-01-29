@@ -15,8 +15,19 @@ export class CartService {
 
   //Add a product to the cart
   addProduct(product: Product): void {
-    this.productList.push(product);
+    const existingProduct = this.productList.find(p => p.id === product.id);
+
+    if (existingProduct) {
+      // Product is already in the cart, update its quantity
+      existingProduct.quantity = (existingProduct.quantity ?? 0) + (product.quantity ?? 1);
+    } else {
+      // Product is not in the cart, add it
+      this.productList.push(product);
+    }
+
+
     this._cartSubject.next([...this.productList]); // Notify subscribers
+
   }
 
   //Remove a product from the cart
