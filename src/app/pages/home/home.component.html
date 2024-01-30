@@ -2,8 +2,17 @@
   <h2>Products</h2>
   <span id="total-results">32 products</span>
 </div>
+<div class="product-footer">
+  <mat-paginator [length]="100"
+                [pageSize]="pageSize"
+                aria-label="Select page"
+                (page)="onPageChange($event)">
+  </mat-paginator>
+</div>
+
+@if (products$ | async) {
 <div class="product-list row row-cols-1 row-cols-md-4 g-4">
-  @if (products$ | async) { @for (product of productList; track product) {
+  @if (productsList$ | async) { @for (product of productList; track product) {
   <div class="col">
     <div class="card" style="width: 18rem">
       <img
@@ -39,3 +48,4 @@
 
 }
 </div>
+}

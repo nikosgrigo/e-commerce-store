@@ -64,3 +64,7 @@ h2 {
     height: 250px;
     object-fit: cover;
 }
+
+.product-footer{
+    margin: 2rem 0rem;
+}
