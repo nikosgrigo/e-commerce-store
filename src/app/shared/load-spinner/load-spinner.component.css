@@ -11,8 +11,8 @@
     top: 50%;
     left: 50%;
     display: block;
-    width: 1em;
-    height: 1em;
+    width: 0.5em;
+    height: 0.5em;
     border-radius: 0.25em;
     transform: translate(-50%, -50%);
    }

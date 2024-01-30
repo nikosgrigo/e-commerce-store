@@ -11,10 +11,10 @@
 </div>
 
 @if (products$ | async) {
-<div class="product-list row row-cols-1 row-cols-md-4 g-4">
+<div class="product-list row row-cols-1 row-cols-md-4 g-3">
   @if (productsList$ | async) { @for (product of productList; track product) {
   <div class="col">
-    <div class="card" style="width: 18rem">
+    <div class="card" style="width: 19rem">
       <img
         src="{{ product.thumbnail }}"
         class="card-img-top product-image"
