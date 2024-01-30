@@ -1,12 +1,4 @@
-<div id="app-container" class="d-flex flex-column min-vh-100">
   <app-navbar></app-navbar>
-
-  @if (isLoading$ | async; as isLoading){ @if(isLoading){
-
-  <div class="loading-spinner">
-    <app-load-spinner></app-load-spinner>
-  </div>
-  } }
 
   <section id="products" class="flex-grow-1">
     <div class="container">
@@ -14,5 +6,3 @@
     </div>
   </section>
 
-  <app-footer id="footer"></app-footer>
-</div>

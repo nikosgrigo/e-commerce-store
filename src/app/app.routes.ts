@@ -3,7 +3,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { SaleComponent } from './pages/sale/sale.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 

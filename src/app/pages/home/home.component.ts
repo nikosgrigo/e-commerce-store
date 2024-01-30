@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ProductDetailsComponent } from '../product-details/product-details.component';
+import { FooterComponent } from '../../shared/footer/footer.component';
+import { LoadSpinnerComponent } from '../../shared/load-spinner/load-spinner.component';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
@@ -14,7 +17,7 @@ import { Observable, map, tap } from 'rxjs';
   selector: 'app-home',
   standalone: true,
   imports: [AsyncPipe, JsonPipe, RouterLink, RouterOutlet,
-    ProductDetailsComponent, MatPaginatorModule],
+    ProductDetailsComponent, MatPaginatorModule, FooterComponent, LoadSpinnerComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.sass'
 })
@@ -24,6 +27,9 @@ export class HomeComponent{
   pageIndex: number = 0
 
   productList: Product[] = [];
+
+  isLoading$:Observable<boolean> = this.productService.isLoading$;
+
   length$ :Observable<number> = this.productService.totalResults$;
   products$: Observable<Product[]> = this.productService.getAllProducts(this.pageSize, this.pageIndex);
   productsList$: Observable<Product[]> = this.productService.product$.pipe(

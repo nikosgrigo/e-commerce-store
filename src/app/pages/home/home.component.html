@@ -1,3 +1,13 @@
+
+<div id="app-container" class="d-flex flex-column min-vh-100">
+@if (isLoading$ | async; as isLoading){ @if(isLoading){
+
+  <div class="loading-spinner">
+    <app-load-spinner></app-load-spinner>
+  </div>
+  } }
+
+
 <div class="results-header">
   <h2>Products</h2>
   <span id="total-results">{{(length$ | async)}} products</span>
@@ -49,3 +59,6 @@
 }
 </div>
 }
+
+<app-footer id="footer"></app-footer>
+</div>
