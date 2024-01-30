@@ -1,9 +1,9 @@
 <div class="results-header">
   <h2>Products</h2>
-  <span id="total-results">32 products</span>
+  <span id="total-results">{{(length$ | async)}} products</span>
 </div>
 <div class="product-footer">
-  <mat-paginator [length]="100"
+  <mat-paginator [length]="(length$ | async)"
                 [pageSize]="pageSize"
                 aria-label="Select page"
                 (page)="onPageChange($event)">

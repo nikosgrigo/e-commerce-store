@@ -18,6 +18,10 @@ export class ProductService {
   private _productsSub = new BehaviorSubject<Product[]>([])
   public readonly product$ = this._productsSub.asObservable()
 
+  //Subject for saving total data length from the server
+  private _totalSub = new BehaviorSubject<number>(10);
+  public readonly totalResults$ = this._totalSub.asObservable()
+
   constructor(private http: HttpClient) { }
 
   getAllProducts(limit?: number, skip?: number): Observable<Product[]> {
@@ -31,7 +35,6 @@ export class ProductService {
     // Make the HTTP GET request with options
     return this.http.get<ProductAPIResponse>(request, {
       observe: 'response',
-      transferCache: { includeHeaders: ['X-Total-Count'] }
     }).pipe(
       catchError((error: any) => {
         console.error('Error fetching products:', error);
@@ -41,8 +44,11 @@ export class ProductService {
         console.log(`Fetching products...`);
 
         // Access headers to get Total number of products
-        const totalCountHeader = response.headers.get('X-Total-Count');
+        const totalCountHeader = response.body?.total || 0;
+
         console.log(`Total products: ${totalCountHeader}`);
+
+        this._totalSub.next(totalCountHeader);
 
         // Return the products array
         return response.body?.products || [];

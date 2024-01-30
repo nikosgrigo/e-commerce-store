@@ -24,7 +24,7 @@ export class HomeComponent{
   pageIndex: number = 0
 
   productList: Product[] = [];
-
+  length$ :Observable<number> = this.productService.totalResults$;
   products$: Observable<Product[]> = this.productService.getAllProducts(this.pageSize, this.pageIndex);
   productsList$: Observable<Product[]> = this.productService.product$.pipe(
     map(products => {
