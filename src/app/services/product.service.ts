@@ -22,13 +22,21 @@ export class ProductService {
   private _totalSub = new BehaviorSubject<number>(10);
   public readonly totalResults$ = this._totalSub.asObservable()
 
-  constructor(private http: HttpClient) { }
+  //Subject for loading spinner actions
+  private _loading = new BehaviorSubject<boolean>(true);
+  public readonly isLoading$ = this._loading.asObservable()
+
+
+  constructor(private http: HttpClient) {}
+
 
   getAllProducts(limit?: number, skip?: number): Observable<Product[]> {
 
-    let request:string = `${this.url}/products`;
+    this._loading.next(true)
 
-    if(limit){
+    let request: string = `${this.url}/products`;
+
+    if (limit) {
       request = `${this.url}/products?limit=${limit}&skip=${skip}`;
     }
 
@@ -55,6 +63,9 @@ export class ProductService {
       }),
       tap((products: Product[]) => {
         this._productsSub.next(products);
+        this._loading.next(false);
+
+        console.log(this._loading)
       })
     );
   }

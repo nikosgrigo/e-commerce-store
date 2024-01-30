@@ -3,7 +3,8 @@
     <a class="navbar-brand" href="#">
       <img src="../assets/flycart-high-resolution-logo-transparent.png" alt="flycart" width="65" height="55">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -22,10 +23,16 @@
     </div>
   </div>
 </nav>
+@if(isLoading$ | async){
+<app-load-spinner></app-load-spinner>
+}@else {
 <section id="products">
   <div class="container">
+
     <router-outlet></router-outlet>
+
   </div>
 </section>
 <app-footer></app-footer>
 
+}
