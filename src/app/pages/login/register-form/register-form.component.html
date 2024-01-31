@@ -1,0 +1,29 @@
+<main class="form-signin w-70 m-auto mt-5">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <img class="mb-4" src="../../../assets/flycart-high-resolution-logo-transparent.png" alt="" width="72"
+      height="57" />
+    <h1 class="h3 mb-3 fw-normal">Sign up</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingPassword" placeholder="Username"
+        [formControl]="formGroup.controls.username" />
+      <label for="floatingUsername">Username</label>
+    </div>
+
+    <div class="form-floating  mt-3">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+        [formControl]="formGroup.controls.email" />
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating mt-3">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+        [formControl]="formGroup.controls.password" />
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <button class="btn btn-primary w-100 py-2 my-4" type="submit" [disabled]="!formGroup.valid">
+      Sign up
+    </button>
+
+  </form>
+</main>

@@ -8,7 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/products', pathMatch: 'full' },
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
     
     {
         path: 'products',
@@ -39,7 +39,6 @@ export const routes: Routes = [
         path: 'login',
         component: LoginComponent
     },
-
     {
         path: 'checkout',
         component: CheckoutComponent

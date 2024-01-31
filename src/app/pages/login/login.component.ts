@@ -1,29 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatTabsModule} from '@angular/material/tabs';
+
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, MatInputModule],
+  imports: [ MatInputModule, MatTabsModule, LoginFormComponent, RegisterFormComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.sass'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  formGroup!: any;
-
-  ngOnInit(): void {
-    this.formGroup = new FormGroup({
-      email: new FormControl<string>('', [Validators.minLength(2), Validators.required]),
-      password: new FormControl<string>('', [Validators.minLength(2), Validators.required])
-    });
-
-  }
-
-  onSubmit():void{
-    console.table(this.formGroup.value);
-  }
 
 }
