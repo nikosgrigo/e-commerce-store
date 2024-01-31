@@ -30,16 +30,22 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.table(this.formGroup.value);
 
     const credentials = this.formGroup.value;
 
     this.auth.loginUser(credentials).subscribe((response) => {
       console.log('response', response);
       if(response){
+
+        //Store user token for later use
         localStorage.setItem('token', response.token);
-        // this.auth.currentUser.set(response);
+
+        //Display notification message for user creation
+
+        //Navigate user to products page
         this.router.navigateByUrl('/products');
+
+
       }
 
     });

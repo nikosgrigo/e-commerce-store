@@ -1,29 +1,53 @@
-<main class="form-signin w-70 m-auto mt-5">
+<main class="form-signin m-auto mt-5">
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-    <img class="mb-4" src="../../../assets/flycart-high-resolution-logo-transparent.png" alt="" width="72"
-      height="57" />
-    <h1 class="h3 mb-3 fw-normal">Sign up</h1>
+    <div class="img-container">
+      <img src="../../../assets/flycart-high-resolution-logo-transparent.png" alt="" width="92" height="77" />
+    </div>
+    <h1 class="h3 mb-3 fw-normal text-center">Sign up</h1>
 
-    <div class="form-floating">
-      <input type="text" class="form-control" id="floatingPassword" placeholder="Username"
-        [formControl]="formGroup.controls.username" />
-      <label for="floatingUsername">Username</label>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatFirstName" placeholder="firstname" [formControl]="formGroup.controls.firstName" />
+          <label for="floatFirstName">First Name</label>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-floating mt-md-0 mt-3">
+          <input type="text" class="form-control" id="floatLastName" placeholder="lastname" [formControl]="formGroup.controls.lastName" />
+          <label for="floatLastName">Last Name</label>
+        </div>
+      </div>
     </div>
 
-    <div class="form-floating  mt-3">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
-        [formControl]="formGroup.controls.email" />
-      <label for="floatingInput">Email address</label>
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatUsername" placeholder="Username" [formControl]="formGroup.controls.username" />
+          <label for="floatUsername">Username</label>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="form-floating mt-md-0 mt-3">
+          <input type="email" class="form-control" id="floatEmail" placeholder="name@example.com" [formControl]="formGroup.controls.email" />
+          <label for="floatEmail">Email address</label>
+        </div>
+      </div>
     </div>
+
     <div class="form-floating mt-3">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-        [formControl]="formGroup.controls.password" />
-      <label for="floatingPassword">Password</label>
+      <input type="password" class="form-control" id="floatPassword" placeholder="Password" [formControl]="formGroup.controls.password" />
+      <label for="floatPassword">Password</label>
+    </div>
+
+    <div class="form-floating mt-3">
+      <input type="phone" class="form-control" id="floatPhone" placeholder="Phone" [formControl]="formGroup.controls.phone" />
+      <label for="floatPhone">Phone</label>
     </div>
 
     <button class="btn btn-primary w-100 py-2 my-4" type="submit" [disabled]="!formGroup.valid">
       Sign up
     </button>
-
   </form>
 </main>

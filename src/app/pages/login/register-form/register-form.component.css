@@ -1,10 +1,12 @@
-.tabs-container{
-    width: 60%;
+.form-signin {
+    width: 90%
 }
 
-.login-container{
-    margin: auto;
+
+.img-container {
+    margin: 3rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+

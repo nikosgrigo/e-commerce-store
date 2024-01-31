@@ -8,29 +8,32 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 })
 export class UserAuthenticationService {
 
-  // currentUser = signal<User | undefined | null>(undefined);
-
   private _userSub = new BehaviorSubject<User | null>(null);
   public readonly user$ = this._userSub.asObservable();
 
 
   constructor(private http: HttpClient) { }
 
-  createUser(): void {
-    const url:string = ``;
-    // this.http.post()
+  createUser(body: any): Observable<User> {
+    const url: string = `https://dummyjson.com/users/add`;
+    return this.http.post<User>(url, body).pipe(
+      tap(newUser => {
+        console.table(newUser);
+        this._userSub.next(newUser);
+      })
+    );
   }
 
-  loginUser(body:any): Observable<User> {
-    const url:string = `https://dummyjson.com/auth/login`;
-    return this.http.post<User>(url,body).pipe(
+  loginUser(body: any): Observable<User> {
+    const url: string = `https://dummyjson.com/auth/login`;
+    return this.http.post<User>(url, body).pipe(
       tap(user => {
         this._userSub.next(user);
       })
     );
   }
 
-  logOutUser():void{
+  logOutUser(): void {
     this._userSub.next(null);
   }
 

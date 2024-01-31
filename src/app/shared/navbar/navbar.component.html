@@ -17,12 +17,13 @@
         </li>
       </ul>
 
+
       <form class="d-flex" role="search">
         <input class="input" name="text" type="text" placeholder="Search for products">
       </form>
 
       @if(user$ |async; as user) {
-      @if (user){
+        @if (user){
 
       <div class="user-info-container">
         <a routerLink="/login" id="login-button" class="me-3" (click)="logOut(user)">Logout</a>
