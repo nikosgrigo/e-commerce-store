@@ -1,42 +1,46 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img
-          src="../assets/flycart-high-resolution-logo-transparent.png"
-          alt="flycart"
-          width="65"
-          height="55"
-        />
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="../assets/flycart-high-resolution-logo-transparent.png" alt="flycart" width="65" height="55" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+      </ul>
+
+      <form class="d-flex" role="search">
+        <input class="input" name="text" type="text" placeholder="Search for products">
+      </form>
+
+      @if(user$ |async; as user) {
+      @if (user){
+
+      <div class="user-info-container">
+        <a routerLink="/login" id="login-button" class="me-3" (click)="logOut(user)">Logout</a>
+        <div class="avatar-container me-3">
+          <img [src]="user.image" alt="User Avatar" class="avatar-img" />
+        </div>
       </div>
+      }
+      }@else {
+      <div class="user-info-container">
+        <a routerLink="/login" id="login-button" class="me-3">Login/Register</a>
+        <div class="avatar-container me-3">
+          <i class="bi bi-person-circle user-default-avatar"></i>
+        </div>
+      </div>
+      }
+
+
     </div>
-  </nav>
+  </div>
+</nav>
